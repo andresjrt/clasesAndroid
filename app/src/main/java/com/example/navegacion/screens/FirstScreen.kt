@@ -11,31 +11,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.navegacion.navigation.AppScreens
 
 @Composable
-fun FirstScreen() {
+fun FirstScreen(navController: NavController) {
     Scaffold {
         it.toString()
-        BodyContent()
+        BodyContent(navController)
     }
 }
 
 @Composable
-fun BodyContent(){
+fun BodyContent(navController: NavController){
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Hola navegación")
-        Button(onClick = { /*TODO*/ },) {
+        Button(onClick = {
+            navController.navigate(AppScreens.SecondScreen.route)
+        },) {
             Text(text = "Navega")
         }
     }
-}
-
-@Preview (showSystemUi = true)
-@Composable
-fun Preview(){
-    FirstScreen()
 }
