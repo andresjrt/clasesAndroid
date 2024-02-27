@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -23,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @Composable
-fun SecondScreen(navController: NavController) {
+fun SecondScreen(navController: NavController, text: String?) {
     Scaffold (topBar = {
         Row(
             Modifier
@@ -38,18 +39,22 @@ fun SecondScreen(navController: NavController) {
         }
     }) {
         it.toString()
-        SecondBodyContent(navController)
+        SecondBodyContent(navController, text)
     }
 }
 
 @Composable
-fun SecondBodyContent(navController: NavController){
+fun SecondBodyContent(navController: NavController, text: String?){
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "Llegué")
+        //Spacer(modifier = Modifier.height(16.dp))
+        Text(text = "Llegué ")
+        text?.let {
+            Text(text = it)
+        }
         Button(onClick = {
             navController.popBackStack()
         },) {

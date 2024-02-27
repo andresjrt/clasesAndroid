@@ -2,7 +2,9 @@ package com.example.navegacion.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -31,9 +33,10 @@ fun BodyContent(navController: NavController){
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        //Spacer(modifier = Modifier.height(16.dp))
         Text(text = "Hola navegación")
         Button(onClick = {
-            navController.navigate(AppScreens.SecondScreen.route)
+            navController.navigate(AppScreens.SecondScreen.route + "/Este es un parámetro")
         },) {
             Text(text = "Navega")
         }
