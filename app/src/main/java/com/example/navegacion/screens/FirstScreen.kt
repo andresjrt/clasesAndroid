@@ -16,7 +16,9 @@ import com.example.navegacion.navigation.AppScreens
 
 @Composable
 fun FirstScreen(navController: NavController) {
-    Scaffold {
+    Scaffold (topBar = {
+        Text(text = "Primera pantalla")
+    }) {
         it.toString()
         BodyContent(navController)
     }
